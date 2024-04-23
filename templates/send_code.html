@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Code</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa; /* Change this to your desired background color */
+    }
+    .container {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+8
+<div class="container">
+  <h1>Send Code</h1>
+  <p class="lead">Please enter your email address below. We will send you a code to reset your password.</p>
+  <form action="{% url 'send_code' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Code</button>
+        {% if error_message %}
+          <div id="error-message" class="alert alert-danger" role="alert">
+              {{ error_message }}
+          </div>
+          {% endif %}
+  </form>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

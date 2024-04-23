@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    .vh-100 {
+      height: 100vh;
+    }
+    body {
+      background-color: #f8f9fa; /* Change this to your desired background color */
+    }
+  </style>
+</head>
+<body>
+
+<section class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="container text-center">
+    <h1>Welcome to Our Website</h1>
+    <p class="lead">Spiral Out keep Going</p>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login</a>
+  </div>
+</section>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

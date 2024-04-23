@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter Code</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f8f9fa; /* Change this to your desired background color */
+    }
+    .container {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Enter Code</h1>
+  <p class="lead">Please enter the code you received via email to reset your password.</p>
+  <form action="{% url 'enter_code' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="email" value="{{ email }}">
+    <div class="mb-3">
+      <label for="code" class="form-label">Code</label>
+      <input type="text" class="form-control" id="code" name="code" placeholder="Enter the code" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">New Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Enter your new password" required>
+    </div>
+    <div class="mb-3">
+      <label for="confirm_password" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" name="confirm_password" placeholder="Confirm your new password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Reset Password</button>
+    {% if error_message %}
+          <div id="error-message" class="alert alert-danger" role="alert">
+              {{ error_message }}
+          </div>
+          {% endif %}
+  </form>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      .divider:after,
+      .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+      }
+      .h-custom {
+        height: calc(100vh - 73px);
+      }
+      @media (max-width: 450px) {
+        .h-custom {
+          height: 100%;
+        }
+      }
+      body {
+        background-color: #303030; /* Change this to your desired background color */
+      }
+      .text-white {
+        color: white !important; /* Change this to white */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-8 col-lg-6 col-xl-5">
+            <form action="" method="post">
+              {% csrf_token %} 
+              {% if error_message %}
+              <div id="error-message" class="alert alert-danger" role="alert">
+                  {{ error_message }}
+              </div>
+              {% endif %}
+              <!-- Username input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="username"
+                  class="form-control form-control-lg"
+                  placeholder="Enter username"
+                  required
+                />
+                <label class="form-label text-white" for="username"
+                  >Username</label
+                >
+              </div>
+
+              <!-- First name input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  class="form-control form-control-lg"
+                  placeholder="Enter first name"
+                  required
+                />
+                <label class="form-label text-white" for="firstName"
+                  >First Name</label
+                >
+              </div>
+
+              <!-- Last name input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="text"
+                  name="lastName"
+                  class="form-control form-control-lg"
+                  placeholder="Enter last name"
+                  required
+                />
+                <label class="form-label text-white" for="lastName"
+                  >Last Name</label
+                >
+              </div>
+
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control form-control-lg"
+                  placeholder="Enter email address"
+                  required
+                />
+                <label class="form-label text-white" for="email"
+                  >Email address</label
+                >
+              </div>
+
+              <!-- Phone number input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="tel"
+                  name="phone"
+                  class="form-control form-control-lg"
+                  placeholder="Enter phone number"
+                  required
+                />
+                <label class="form-label text-white" for="phone"
+                  >Phone number</label
+                >
+              </div>
+
+              <!-- Password input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control form-control-lg"
+                  placeholder="Enter password"
+                  required
+                />
+                <label class="form-label text-white" for="password"
+                  >Password</label
+                >
+              </div>
+
+              <!-- Re-enter password input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  class="form-control form-control-lg"
+                  placeholder="Re-enter password"
+                  required
+                />
+                <label class="form-label text-white" for="confirmPassword"
+                  >Re-enter Password</label
+                >
+              </div>
+
+              <!-- Terms and Conditions -->
+              <div class="form-check mb-4">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="terms"
+                  name="terms"
+                  required
+                />
+                <label class="form-check-label text-white" for="terms">
+                  I agree to the
+                  <a href="{% url 'terms' %}" class="link-primary"
+                    >Terms and Conditions</a
+                  >
+                </label>
+              </div>
+
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem"
+                >
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Function to hide the error message after a delay
+      setTimeout(function() {
+          var errorMessage = document.getElementById('error-message');
+          if (errorMessage) {
+              errorMessage.style.display = 'none';
+          }
+      }, 5000); // Hide after 5 seconds (5000 milliseconds)
+  </script>
+  </body>
+</html>

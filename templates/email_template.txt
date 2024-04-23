@@ -1,0 +1,6 @@
+Hello,
+
+Your verification code is: {{ code }}
+
+Regards,
+Sachin Koirala
